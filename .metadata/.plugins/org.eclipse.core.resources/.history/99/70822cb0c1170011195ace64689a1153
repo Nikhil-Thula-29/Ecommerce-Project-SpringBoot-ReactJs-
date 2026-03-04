@@ -1,0 +1,11 @@
+package com.nt.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.nt.service.ICustomerService;
+
+@RestController
+public class CustomerController {
+
+	private ICustomerService custServ;
+}

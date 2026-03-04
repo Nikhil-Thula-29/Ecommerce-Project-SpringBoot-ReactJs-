@@ -1,0 +1,76 @@
+package com.nt.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.nt.entity.Customer;
+import com.nt.service.ICustomerService;
+
+@RestController
+@RequestMapping("/api/customers")
+public class CustomerController {
+
+	@Autowired
+	private ICustomerService custServ;
+	
+
+	@PostMapping
+	public ResponseEntity<String> createCustomer(@RequestBody Customer customer){
+		String msg=custServ.createCustomer(customer);
+		return new ResponseEntity<String>(msg,HttpStatus.CREATED);
+	}
+	
+	
+	@GetMapping
+	public ResponseEntity<?> getAllCustomers(){
+		try {
+			List<Customer> customers=custServ.getAllCustomers();
+			return new ResponseEntity<List<Customer>>(customers,HttpStatus.OK);
+			
+		}catch(RuntimeException e) {
+			return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<?> getCustomerById(@PathVariable(name="id") Long id){
+		try {
+			Customer cust=custServ.getCustomerById(id);
+			return new ResponseEntity<Customer>(cust,HttpStatus.OK);
+		}catch(RuntimeException e) {
+			return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@PatchMapping("/{id}")
+	public ResponseEntity<?> updateCustomer(@RequestBody Customer cust,@PathVariable(name="id") Long id){
+		try {
+			Customer custom=custServ.updateCustomer(id, cust);
+			return new ResponseEntity<Customer>(custom,HttpStatus.OK);
+		}catch(RuntimeException e) {
+			return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<String> deleteCustomer(@PathVariable(name="id") Long id){
+		try {
+			String msg=custServ.deleteCustomerById(id);
+			return new ResponseEntity<String>(msg,HttpStatus.OK);
+		}catch(RuntimeException e) {
+			return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
+		}
+	}
+	
+}

@@ -1,0 +1,3 @@
+spring.application.name=E-commerce_SB
+
+spring.h2.console.enabled=true

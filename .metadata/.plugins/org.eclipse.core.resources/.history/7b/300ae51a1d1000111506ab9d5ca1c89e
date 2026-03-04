@@ -1,0 +1,19 @@
+package com.nt.service;
+
+import java.util.List;
+
+import com.nt.model.Category;
+
+public class CategoryService implements ICategoryService {
+
+	@Override
+	public List<Category> getAllCategories() {
+		
+	}
+
+	@Override
+	public void createCategory(Category category) {
+		
+	}
+
+}
