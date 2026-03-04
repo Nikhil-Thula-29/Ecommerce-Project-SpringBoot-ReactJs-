@@ -18,6 +18,8 @@ import org.springframework.web.server.ResponseStatusException;
 import com.nt.entity.Category;
 import com.nt.service.CategoryService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api")
 public class CategoryController {
@@ -34,21 +36,24 @@ public class CategoryController {
 	
 	
 	@PostMapping("/public/categories")
-	public ResponseEntity<String> createCategory(@RequestBody Category category) {
+	public ResponseEntity<String> createCategory(@Valid @RequestBody Category category) {
 		catserv.createCategory(category);
 		return new ResponseEntity<String>("Category created successfully",HttpStatus.CREATED);	
 	}
 	
 	@DeleteMapping("/admin/categories/{catId}")
 	public ResponseEntity<String> deleteCategory(@PathVariable (name = "catId") Long catId) {
-		try {
+		/*try {
 			String msg=catserv.deleteCategory(catId);
 			return new ResponseEntity<String>(msg,HttpStatus.OK);
 			//return ResponseEntity.ok(msg);
 			//return ResponseEntity.status(HttpStatus.OK).body(msg);
 		}catch(ResponseStatusException e) {
 			return new ResponseEntity<String>(e.getReason(),e.getStatusCode());
-		}
+		}*/
+		
+		String msg=catserv.deleteCategory(catId);
+		return new ResponseEntity<String>(msg,HttpStatus.OK);
 		
 	}
 	
@@ -56,13 +61,17 @@ public class CategoryController {
 	@PatchMapping("/admin/categories/{catId}")
 	public ResponseEntity<String> updateCategory(@RequestBody Category category,
 												@PathVariable(name="catId") Long catId){
-		try {
+		
+		//we are using direct exceptional handling so try catch not recommended if not use try catch..
+		/*try {
 			catserv.updateCategory(category,catId);
 			return new ResponseEntity<String>("Category with id "+catId+" updated successfully",HttpStatus.OK);
 		}catch(ResponseStatusException e) {
 			return new ResponseEntity<String>(e.getReason(),e.getStatusCode());
-		}
+		}*/
 		
+		catserv.updateCategory(category,catId);
+		return new ResponseEntity<String>("Category with id "+catId+" updated successfully",HttpStatus.OK);
 		
 	}
 }

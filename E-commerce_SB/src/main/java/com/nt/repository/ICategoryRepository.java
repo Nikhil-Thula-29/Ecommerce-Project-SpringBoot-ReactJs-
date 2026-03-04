@@ -6,4 +6,6 @@ import com.nt.entity.Category;
 
 public interface ICategoryRepository extends JpaRepository<Category, Long> {
 
+	public Category findByCategoryName(String categoryName);
+
 }

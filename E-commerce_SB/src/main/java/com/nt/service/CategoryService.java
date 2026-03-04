@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.nt.entity.Category;
+import com.nt.exception.APIException;
+import com.nt.exception.ResourceNotFoundException;
 import com.nt.repository.ICategoryRepository;
 
 
@@ -23,11 +25,19 @@ public class CategoryService implements ICategoryService {
 	
 	@Override
 	public List<Category> getAllCategories() {
+		List<Category> catlist=catRepo.findAll();
+		if(catlist.isEmpty()) {
+			throw new APIException("No Category created till now!!");
+		}
 		return catRepo.findAll();
 	}
 
 	@Override
 	public void createCategory(Category category) {
+		Category cat=catRepo.findByCategoryName(category.getCategoryName());
+		if(cat!=null) {
+			throw new APIException("Category with the name "+category.getCategoryName()+" is already exists!!!");
+		}
 		catRepo.save(category);
 	}
 
@@ -52,7 +62,7 @@ public class CategoryService implements ICategoryService {
 			catRepo.delete(cat1);
 			return categoryId+" deleted successfully";
 		}else {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Resource Not Found");
+			throw new ResourceNotFoundException("Category","categoryId",categoryId);
 		}
 	}
 
@@ -76,7 +86,7 @@ public class CategoryService implements ICategoryService {
 			cat1=catRepo.save(cat1);
 			return cat1;
 		}else {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Resource Not Found");
+			throw new ResourceNotFoundException("Category","categoryId",categoryId);
 		}
 	}
 	
