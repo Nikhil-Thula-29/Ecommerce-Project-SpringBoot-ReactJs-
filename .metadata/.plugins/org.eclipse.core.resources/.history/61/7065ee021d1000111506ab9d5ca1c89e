@@ -1,8 +1,0 @@
-package com.nt.service;
-
-public interface ICategoryService {
-
-	public List<Category> getAllCategories();
-	
-	public void createCategory();
-}

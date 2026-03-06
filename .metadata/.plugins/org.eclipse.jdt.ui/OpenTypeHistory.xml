@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-    <typeInfo handle="=E-commerce_SB/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.nt.service{ICategoryService.java[ICategoryService" modifiers="513" timestamp="1771789677729"/>
+    <typeInfo handle="=E-commerce_SB/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.nt.service{ICategoryService.java[ICategoryService" modifiers="513" timestamp="1772735672963"/>
+    <typeInfo handle="=E-commerce_SB/C:\/Users\/DELL\/.m2\/repository\/org\/springframework\/data\/spring-data-jpa\/4.0.3\/spring-data-jpa-4.0.3.jar=/maven.pomderived=/true=/=/org.eclipse.jst.component.archivename=/spring-data-jpa-4.0.3.jar=/=/maven.groupId=/org.springframework.data=/=/maven.artifactId=/spring-data-jpa=/=/maven.version=/4.0.3=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;org.springframework.data.jpa.repository(JpaRepository.class[JpaRepository" modifiers="1537" timestamp="1770979182000"/>
+    <typeInfo handle="=app-crud/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.nt.service{ICustomerService.java[ICustomerService" modifiers="513" timestamp="1772624788985"/>
 </typeInfoHistroy>

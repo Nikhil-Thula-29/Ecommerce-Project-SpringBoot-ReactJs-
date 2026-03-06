@@ -1,17 +1,17 @@
 package com.nt.service;
 
-import java.util.List;
 
-import com.nt.entity.Category;
+import com.nt.payload.CategoryDTO;
+import com.nt.payload.CategoryResponse;
 
 
 public interface ICategoryService {
 
-	public List<Category> getAllCategories();
+	public CategoryResponse getAllCategories(Integer pageNumber,Integer pageSize,String sortBy,String sortDir);
 	
-	public void createCategory(Category category);
+	public CategoryDTO createCategory(CategoryDTO categoryDTO);
 	
-	public String deleteCategory(Long categoryId);
+	public CategoryDTO deleteCategory(Long categoryId);
 	
-	public Category updateCategory(Category category,Long categoryId);
+	public CategoryDTO updateCategory(CategoryDTO categoryDTO,Long categoryId);
 }
