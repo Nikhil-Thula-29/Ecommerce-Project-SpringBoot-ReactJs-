@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -45,7 +46,7 @@ public class SocialUser {
 	@OneToMany(mappedBy = "socialUser",cascade = CascadeType.ALL)//Imp: check whether mappedBy has to match socialUser that has to match SocialPosts field name.
 	private List<SocialPosts> posts=new ArrayList<>();
 	
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER) //It will become eager because of MTM by default it will be lazy.
 	@JoinTable(
 			name="user_group",//table name
 			joinColumns=@JoinColumn(name="user_id"),//pk of present entity for new table it is FK
@@ -100,4 +101,11 @@ public class SocialUser {
 			}
 		}
 	}
+	
+	//Fetch types:
+	/*OneToOne-> Eager
+	OneToMany->Lazy
+	ManyToOne->Lazy
+	ManyToMany->Eager*/
+	//Rem: if OTO,MTO is eager i.e one is last -> eager.
 }
