@@ -3269,3 +3269,7 @@ Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: org.projectlom
 2026-03-06 23:58:54,819 [Worker-71: Launching socialmedia - SocialmediaApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2026-03-06 23:58:54,866 [Worker-71: Launching socialmedia - SocialmediaApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2026-03-06 23:58:54,871 [Worker-71: Launching socialmedia - SocialmediaApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2026-03-07 11:26:31,777 [Worker-8: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2026-03-07 12:15:07,901 [Worker-37: Launching socialmedia - SocialmediaApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2026-03-07 12:15:08,040 [Worker-37: Launching socialmedia - SocialmediaApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2026-03-07 12:15:08,047 [Worker-37: Launching socialmedia - SocialmediaApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
