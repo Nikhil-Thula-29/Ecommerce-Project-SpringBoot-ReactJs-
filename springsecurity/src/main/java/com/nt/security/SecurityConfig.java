@@ -81,7 +81,7 @@ public class SecurityConfig {
 	
 	@Bean
 	public UserDetailsService userDetailsService() {
-		return new JdbcUserDetailsManager();
+		return new JdbcUserDetailsManager(dataSource);
 	}
 	
 	public CommandLineRunner intiData(UserDetailsService userDetailsService) {

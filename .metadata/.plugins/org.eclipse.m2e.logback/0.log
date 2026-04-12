@@ -4738,3 +4738,114 @@ Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: org.projectlom
 2026-04-12 11:02:45,512 [Worker-45: Launching springsecurity - SpringsecurityApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2026-04-12 11:02:45,925 [Worker-45: Launching springsecurity - SpringsecurityApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2026-04-12 11:02:45,945 [Worker-45: Launching springsecurity - SpringsecurityApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\E-commerce Project\springsecurity\src\test\resources
+2026-04-12 17:39:00,099 [Worker-102: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2026-04-12 17:39:02,198 [Worker-102: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.nt:springsecurity:0.0.1-SNAPSHOT @ F:\E-commerce Project\springsecurity\pom.xml.
+2026-04-12 17:39:03,372 [Worker-102: Updating Maven Project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.21.2/jackson-databind-2.21.2.pom
+2026-04-12 17:39:03,379 [Worker-102: Updating Maven Project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.21.2/jackson-databind-2.21.2.pom
+2026-04-12 17:39:03,426 [Worker-102: Updating Maven Project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-base/2.21.2/jackson-base-2.21.2.pom
+2026-04-12 17:39:03,430 [Worker-102: Updating Maven Project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-base/2.21.2/jackson-base-2.21.2.pom
+2026-04-12 17:39:03,481 [Worker-102: Updating Maven Project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.21.2/jackson-core-2.21.2.pom
+2026-04-12 17:39:03,485 [Worker-102: Updating Maven Project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.21.2/jackson-core-2.21.2.pom
+2026-04-12 17:39:04,347 [Worker-102: Updating Maven Project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.21.2/jackson-databind-2.21.2.jar
+2026-04-12 17:39:04,524 [Worker-102: Updating Maven Project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.21.2/jackson-databind-2.21.2.jar
+2026-04-12 17:39:04,554 [BasicRepositoryConnector-repo.maven.apache.org-1-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.21.2/jackson-core-2.21.2.jar
+2026-04-12 17:39:04,585 [BasicRepositoryConnector-repo.maven.apache.org-1-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.21.2/jackson-core-2.21.2.jar
+2026-04-12 17:39:05,563 [Worker-102: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /springsecurity/src/main/java
+2026-04-12 17:39:05,563 [Worker-102: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /springsecurity/src/main/resources
+2026-04-12 17:39:05,564 [Worker-102: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /springsecurity/src/main/resources
+2026-04-12 17:39:05,564 [Worker-102: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /springsecurity/src/test/java
+2026-04-12 17:39:05,564 [Worker-102: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /springsecurity/src/test/resources
+2026-04-12 17:39:06,294 [Worker-103: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.21.2/jackson-databind-2.21.2-sources.jar
+2026-04-12 17:39:06,463 [Worker-103: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.21.2/jackson-databind-2.21.2-sources.jar
+2026-04-12 17:39:06,483 [Worker-103: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.fasterxml.jackson.core:jackson-databind:2.21.2
+2026-04-12 17:39:06,601 [Worker-103: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.21.2/jackson-core-2.21.2-sources.jar
+2026-04-12 17:39:06,674 [Worker-103: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.21.2/jackson-core-2.21.2-sources.jar
+2026-04-12 17:39:06,780 [Worker-103: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.fasterxml.jackson.core:jackson-core:2.21.2
+2026-04-12 17:39:07,922 [Worker-102: Updating Maven Project] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for springsecurity
+2026-04-12 17:39:08,002 [Worker-102: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 5.00 sec, update config takes 2.00 sec 
+2026-04-12 17:39:22,226 [Worker-113: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2026-04-12 17:39:22,667 [Worker-113: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.nt:springsecurity:0.0.1-SNAPSHOT @ F:\E-commerce Project\springsecurity\pom.xml.
+2026-04-12 17:39:23,341 [Worker-113: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /springsecurity/src/main/java
+2026-04-12 17:39:23,341 [Worker-113: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /springsecurity/src/main/resources
+2026-04-12 17:39:23,341 [Worker-113: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /springsecurity/src/main/resources
+2026-04-12 17:39:23,341 [Worker-113: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /springsecurity/src/test/java
+2026-04-12 17:39:23,341 [Worker-113: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /springsecurity/src/test/resources
+2026-04-12 17:39:24,454 [Worker-113: Updating Maven Project] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for springsecurity
+2026-04-12 17:39:24,481 [Worker-113: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 1.00 sec, update config takes 1.00 sec 
+2026-04-12 18:32:58,481 [Worker-128: Launching springsecurity - SpringsecurityApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2026-04-12 18:32:58,563 [Worker-128: Launching springsecurity - SpringsecurityApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2026-04-12 18:32:58,570 [Worker-128: Launching springsecurity - SpringsecurityApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\E-commerce Project\springsecurity\src\test\resources
+2026-04-12 18:32:58,572 [Worker-128: Launching springsecurity - SpringsecurityApplication] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of springsecurity
+2026-04-12 18:32:58,572 [Worker-128: Launching springsecurity - SpringsecurityApplication] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for springsecurity
+2026-04-12 23:55:01,375 [Worker-170: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2026-04-12 23:55:02,809 [Worker-170: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.nt:springsecurity:0.0.1-SNAPSHOT @ F:\E-commerce Project\springsecurity\pom.xml.
+2026-04-12 23:55:06,946 [Worker-170: Updating Maven Project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/projectlombok/lombok/1.18.44/lombok-1.18.44.pom
+2026-04-12 23:55:06,952 [Worker-170: Updating Maven Project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/projectlombok/lombok/1.18.44/lombok-1.18.44.pom
+2026-04-12 23:55:07,149 [Worker-170: Updating Maven Project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar
+2026-04-12 23:55:07,314 [Worker-170: Updating Maven Project] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar
+2026-04-12 23:55:08,477 [Worker-170: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /springsecurity/src/main/java
+2026-04-12 23:55:08,477 [Worker-170: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /springsecurity/src/main/resources
+2026-04-12 23:55:08,477 [Worker-170: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /springsecurity/src/main/resources
+2026-04-12 23:55:08,478 [Worker-170: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /springsecurity/src/test/java
+2026-04-12 23:55:08,478 [Worker-170: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /springsecurity/src/test/resources
+2026-04-12 23:55:08,595 [Worker-170: Updating Maven Project] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.projectlombok:lombok:jar: is missing, no dependency information available
+2026-04-12 23:55:08,608 [Worker-170: Updating Maven Project] ERROR o.e.m.a.i.u.PluginDependencyResolver - Unable to collect dependencies for plugin
+org.eclipse.aether.resolution.DependencyResolutionException: The following artifacts could not be resolved: org.projectlombok:lombok:jar: (absent): org.projectlombok:lombok:jar: was not found in https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveDependencies(DefaultRepositorySystem.java:365)
+	at org.eclipse.m2e.apt.internal.utils.PluginDependencyResolver.getResolvedPluginDependencies(PluginDependencyResolver.java:106)
+	at org.eclipse.m2e.apt.internal.compiler.MavenCompilerJdtAptDelegate.getAnnotationProcessorConfiguration(MavenCompilerJdtAptDelegate.java:172)
+	at org.eclipse.m2e.apt.internal.AbstractAptConfiguratorDelegate.configureClasspath(AbstractAptConfiguratorDelegate.java:241)
+	at org.eclipse.m2e.apt.internal.AbstractAptProjectConfigurator.lambda$1(AbstractAptProjectConfigurator.java:156)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:394)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:275)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:214)
+	at org.eclipse.m2e.apt.internal.AbstractAptProjectConfigurator.configureRawClasspath(AbstractAptProjectConfigurator.java:150)
+	at org.eclipse.m2e.jdt.internal.AbstractJavaProjectConfigurator.invokeJavaProjectConfigurators(AbstractJavaProjectConfigurator.java:209)
+	at org.eclipse.m2e.jdt.internal.AbstractJavaProjectConfigurator.configure(AbstractJavaProjectConfigurator.java:167)
+	at org.eclipse.m2e.core.project.configurator.AbstractLifecycleMapping.configure(AbstractLifecycleMapping.java:123)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.lambda$6(ProjectConfigurationManager.java:503)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:394)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:275)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.updateProjectConfiguration(ProjectConfigurationManager.java:497)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.lambda$4(ProjectConfigurationManager.java:425)
+	at java.base/java.util.Collection.removeIf(Collection.java:576)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.updateProjectConfiguration0(ProjectConfigurationManager.java:413)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.lambda$3(ProjectConfigurationManager.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:394)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:275)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:214)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1097)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.updateProjectConfiguration(ProjectConfigurationManager.java:338)
+	at org.eclipse.m2e.core.ui.internal.UpdateMavenProjectJob.runInWorkspace(UpdateMavenProjectJob.java:80)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: The following artifacts could not be resolved: org.projectlombok:lombok:jar: (absent): org.projectlombok:lombok:jar: was not found in https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:473)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:261)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveDependencies(DefaultRepositorySystem.java:353)
+	... 27 common frames omitted
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: org.projectlombok:lombok:jar: was not found in https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:225)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:201)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:586)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:525)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:449)
+	... 29 common frames omitted
+2026-04-12 23:55:08,611 [Worker-170: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 6.00 sec, update config takes 0.00 sec 
+2026-04-12 23:55:09,499 [Worker-180: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/projectlombok/lombok/1.18.44/lombok-1.18.44-sources.jar
+2026-04-12 23:55:09,644 [Worker-180: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/projectlombok/lombok/1.18.44/lombok-1.18.44-sources.jar
+2026-04-12 23:55:09,649 [Worker-180: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.projectlombok:lombok:1.18.44
+2026-04-13 01:20:31,982 [Worker-212: Launching springsecurity - SpringsecurityApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2026-04-13 01:20:32,089 [Worker-212: Launching springsecurity - SpringsecurityApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2026-04-13 01:20:32,111 [Worker-212: Launching springsecurity - SpringsecurityApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\E-commerce Project\springsecurity\src\test\resources
+2026-04-13 01:20:32,113 [Worker-212: Launching springsecurity - SpringsecurityApplication] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of springsecurity
+2026-04-13 01:20:32,113 [Worker-212: Launching springsecurity - SpringsecurityApplication] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for springsecurity
+2026-04-13 01:24:58,425 [Worker-224: Launching springsecurity - SpringsecurityApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2026-04-13 01:24:58,538 [Worker-224: Launching springsecurity - SpringsecurityApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2026-04-13 01:24:58,543 [Worker-224: Launching springsecurity - SpringsecurityApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\E-commerce Project\springsecurity\src\test\resources
+2026-04-13 01:28:24,612 [Worker-221: Launching springsecurity - SpringsecurityApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2026-04-13 01:28:24,655 [Worker-221: Launching springsecurity - SpringsecurityApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2026-04-13 01:28:24,659 [Worker-221: Launching springsecurity - SpringsecurityApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\E-commerce Project\springsecurity\src\test\resources
+2026-04-13 02:07:36,147 [Worker-257: Launching springsecurity - SpringsecurityApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2026-04-13 02:07:36,301 [Worker-257: Launching springsecurity - SpringsecurityApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2026-04-13 02:07:36,305 [Worker-257: Launching springsecurity - SpringsecurityApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\E-commerce Project\springsecurity\src\test\resources
