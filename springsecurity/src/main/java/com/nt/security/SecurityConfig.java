@@ -50,7 +50,7 @@ public class SecurityConfig {
 		//http.formLogin(withDefaults());
 		http.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 		http.exceptionHandling(exception->exception.authenticationEntryPoint(unauthorizedHandler));//mapping authorized error to AuthEntryPointJWT
-		http.httpBasic(withDefaults()); //used for postman
+		//http.httpBasic(withDefaults()); //used for postman
 		http.headers(headers->headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));
 		http.addFilterBefore(authTokenFilter, UsernamePasswordAuthenticationFilter.class);
 		http.csrf(csrf->csrf.disable()); 
@@ -84,6 +84,7 @@ public class SecurityConfig {
 		return new JdbcUserDetailsManager(dataSource);
 	}
 	
+	@Bean
 	public CommandLineRunner intiData(UserDetailsService userDetailsService) {
 		JdbcUserDetailsManager manager=(JdbcUserDetailsManager) userDetailsService; //here we dont have direct object of jdbcuserdetailsmanager from userdetailsservice so we need to type case and use that.
 		return args->{

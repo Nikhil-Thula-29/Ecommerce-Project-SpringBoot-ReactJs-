@@ -26,7 +26,6 @@ import com.nt.security.LoginRequest;
 import com.nt.security.LoginResponse;
 
 @RestController
-@RequestMapping("/api")
 public class GreetingsController {
 	
 	@Autowired

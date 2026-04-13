@@ -33,6 +33,13 @@ public class AuthTokenFilter extends OncePerRequestFilter{
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
 		logger.debug("AuthTokenFilter called for URI: {}",request.getRequestURI());
+		//this is for giving access to h2 console because first this class is called not able to run select queries in db.
+		String path = request.getRequestURI();
+		if (path.startsWith("/h2-console") || path.contains("/signin")) {
+		    filterChain.doFilter(request, response);
+		    return;
+		}
+
 		try {
 			String jwt=parseJwt(request);
 			if(jwt!=null && jwtUtils.validateJwtToken(jwt)) {
