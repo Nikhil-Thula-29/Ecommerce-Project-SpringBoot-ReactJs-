@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+
+import com.nt.security.services.UserDetailsServiceImpl;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -25,7 +25,7 @@ public class AuthTokenFilter extends OncePerRequestFilter{
 	@Autowired
 	private JwtUtils jwtUtils;
 	@Autowired
-	private UserDetailsService userDetailsService;
+	private UserDetailsServiceImpl userDetailsService;
 	
 	private static final Logger logger=LoggerFactory.getLogger(AuthTokenFilter.class);
 
@@ -35,7 +35,7 @@ public class AuthTokenFilter extends OncePerRequestFilter{
 		logger.debug("AuthTokenFilter called for URI: {}",request.getRequestURI());
 		//this is for giving access to h2 console because first this class is called not able to run select queries in db.
 		String path = request.getRequestURI();
-		if (path.startsWith("/h2-console") || path.contains("/signin")) {
+		if (path.startsWith("/h2-console") || path.startsWith("/api/auth")) {//skips for /signup and /signin because both are first time login no token
 		    filterChain.doFilter(request, response);
 		    return;
 		}

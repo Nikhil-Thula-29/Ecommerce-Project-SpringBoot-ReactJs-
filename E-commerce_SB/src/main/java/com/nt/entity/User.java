@@ -47,7 +47,7 @@ public class User {
 	@NotBlank
 	@Size(max=20)
 	@Column(name="username")
-	private String username;
+	private String userName;
 	
 	@NotBlank
 	@Size(max=50)
@@ -59,6 +59,8 @@ public class User {
 	@Size(max=120)
 	@Column(name="password")
 	private String password;
+	
+	
 	
 	
 	@Getter
@@ -84,5 +86,13 @@ public class User {
 			joinColumns = @JoinColumn(name="user_id"),
 			inverseJoinColumns = @JoinColumn(name="address_id"))
 	private List<Address> addresses=new ArrayList<>();
+
+	public User(@NotBlank @Size(max = 20) String userName, @NotBlank @Size(max = 50) @Email String email,
+			@NotBlank @Size(max = 120) String password) {
+		super();
+		this.userName = userName;
+		this.email = email;
+		this.password = password;
+	}
 	
 }
