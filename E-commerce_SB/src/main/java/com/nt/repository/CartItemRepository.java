@@ -9,7 +9,7 @@ import com.nt.entity.CartItem;
 public interface CartItemRepository extends JpaRepository<CartItem, Long>{
 
 	//Rem query of syntax how to write.(ci.cart.cartId)
-	@Query("Select ci from cartItem ci where ci.cart.cartId=?1 And ci.product.productId=?2")
+	@Query("Select ci from CartItem ci where ci.cart.cartId=?1 And ci.product.productId=?2") //Rem always use entity name i.e with caps as CartItem not the db name in JPA.
 	public CartItem findCartItemByProductIdAndCartId(Long cartId, Long productId);
 
 }

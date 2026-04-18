@@ -17,6 +17,7 @@ import com.nt.payload.ProductDTO;
 import com.nt.repository.CartItemRepository;
 import com.nt.repository.CartRepository;
 import com.nt.repository.IProductRepository;
+import com.nt.util.AuthUtil;
 
 @Service
 public class CartServiceImpl implements ICartService {
@@ -97,7 +98,7 @@ public class CartServiceImpl implements ICartService {
 		}
 		Cart cart =new Cart();
 		cart.setTotalPrice(0.0);
-		cart.setUser(authUtil.loggedInUser);
+		cart.setUser(authUtil.loggedInUser());
 		Cart newCart=cartRepository.save(cart);
 		return newCart;
 	}
