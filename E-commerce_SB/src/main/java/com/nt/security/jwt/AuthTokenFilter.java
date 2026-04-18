@@ -35,7 +35,7 @@ public class AuthTokenFilter extends OncePerRequestFilter{
 		logger.debug("AuthTokenFilter called for URI: {}",request.getRequestURI());
 		//this is for giving access to h2 console because first this class is called not able to run select queries in db.
 		String path = request.getRequestURI();
-		if (path.startsWith("/h2-console") || path.startsWith("/api/auth")) {//skips for /signup and /signin because both are first time login no token
+		if (path.startsWith("/h2-console") ||  path.equals("/api/auth/signin") || path.equals("/api/auth/signup")) {//skips for /signup and /signin because both are first time login no token
 		    filterChain.doFilter(request, response);
 		    return;
 		}
@@ -51,6 +51,7 @@ public class AuthTokenFilter extends OncePerRequestFilter{
 				//This helps in Adds extra request information to authentication like ipaddress,sessionid,etc
 				authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 				SecurityContextHolder.getContext().setAuthentication(authentication);//we will store the details for role based access in security context
+				System.out.println("Auth set: " + authentication);
 				logger.debug("Roles from JWT: {}",userDetails.getAuthorities());				
 			}
 		}catch(Exception e) {
@@ -60,7 +61,7 @@ public class AuthTokenFilter extends OncePerRequestFilter{
 	}
 
 	private String parseJwt(HttpServletRequest request) {
-		String jwt=jwtUtils.getJWTFromHeader(request);
+		String jwt=jwtUtils.getJWTFromCookies(request);
 		return jwt;
 	}
 

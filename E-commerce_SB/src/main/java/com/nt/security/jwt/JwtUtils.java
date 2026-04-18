@@ -6,8 +6,12 @@ import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseCookie;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+import org.springframework.web.util.WebUtils;
+
+import com.nt.security.services.UserDetailsImpl;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -16,6 +20,7 @@ import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.UnsupportedJwtException;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Component
@@ -28,21 +33,57 @@ public class JwtUtils {
 	@Value("${spring.app.jwtSecret}")
 	private String jwtSecret;
 	
-	
-	
+	@Value("${spring.ecom.app.jwtCookieName}")
+	private String jwtCookie;
 	
 	//Getting JWT From Header
-	public String getJWTFromHeader(HttpServletRequest request) {
+	/*public String getJWTFromHeader(HttpServletRequest request) {
 		String bearerToken=request.getHeader("Authorization");
 		if(bearerToken!=null && bearerToken.startsWith("Bearer ")) {
 			return bearerToken=bearerToken.substring(7);
 		}
 		return null;
+	}*/
+	
+	//Getting JWT From cookie.(We are using cookies instead of headers)
+	public String getJWTFromCookies(HttpServletRequest request) {
+		Cookie cookie=WebUtils.getCookie(request, jwtCookie); //rem WebUtils class.
+		if(cookie!=null) {
+			return cookie.getValue();
+		}else {
+			return null;
+		}
+		
+	}
+	
+	
+	//Generate JWT by ResponseCookie it uses generateTokenFromUserName
+	public ResponseCookie generateJwtCookie(UserDetailsImpl userPrincipal) {
+		String jwt=generateTokenFromUserName(userPrincipal.getUsername());
+		ResponseCookie cookie=ResponseCookie.from(jwtCookie,jwt)
+				.path("/")
+				.maxAge(24*60*60*10)
+				.httpOnly(true)  //this can stop xss attacks (cross-site scripting executing js code)
+		        .secure(true) //Only works on HTTPS (recommended for production)
+		        .sameSite("Strict") //this can stop csrf attacks( redirecting to other pages) cross site request forgery.
+				.build();
+		return cookie;	
+	}
+	
+	
+	public ResponseCookie getCleanJwtCookie() {
+		ResponseCookie cookie=ResponseCookie.from(jwtCookie,null)
+				.path("/")
+				.maxAge(0)  
+		        .httpOnly(true)
+		        .secure(false)
+		        .sameSite("Strict")
+				.build();
+		return cookie;	
 	}
 	
 	//Generating Token from username
-	public String generateTokenFromUserName(UserDetails userDetails) {
-		String userName=userDetails.getUsername();
+	public String generateTokenFromUserName(String userName) {
 		return Jwts.builder()
 				.setSubject(userName)
 				.setIssuedAt(new Date())
