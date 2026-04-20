@@ -1,16 +1,20 @@
 package com.nt.service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.nt.entity.Cart;
 import com.nt.entity.Category;
 import com.nt.entity.Product;
+import com.nt.exception.APIException;
 import com.nt.exception.ResourceNotFoundException;
 import com.nt.payload.CartDTO;
 import com.nt.payload.ProductDTO;
@@ -19,6 +23,7 @@ import com.nt.repository.CartRepository;
 import com.nt.repository.ICategoryRepository;
 import com.nt.repository.IProductRepository;
 import com.nt.util.AuthUtil;
+
 
 @Service
 public class ProductService implements IProductService{
@@ -40,30 +45,48 @@ public class ProductService implements IProductService{
 	
 	@Autowired
 	private ICartService cartService;
+	
+	@Autowired
+	private FileService fileService;
+	
+	@Value("${project.image}")
+	private String path;
 
 	@Override
 	public ProductDTO addProduct(ProductDTO productDTO, Long categoryId) {
-		Optional<Category> cat=catRepo.findById(categoryId);
-		if(cat.isPresent()) {
-			Product prod=modelMapper.map(productDTO, Product.class);
-			double specialPrice=(prod.getPrice()-(prod.getDiscount()*0.01)*prod.getPrice());
-			prod.setImage("default.png");
-			prod.setCategory(cat.get());
-			prod.setSpecialPrice(specialPrice);
-			prod.setUser(authUtil.loggedInUser()); //this is common util class to get user details
-			Product prodResp=prodRepo.save(prod);
-			ProductDTO dtoResp=modelMapper.map(prodResp, ProductDTO.class);
-			return dtoResp;
-		}else {
-			throw new ResourceNotFoundException("category", "categoryId", categoryId);
+		Category cat=catRepo.findById(categoryId).orElseThrow(()->new ResourceNotFoundException("Category","categoryId",categoryId));	
+		//check if product already present or not
+		boolean isProductNotPresent=true;
+		List<Product> products=cat.getProduct();
+		for(Product prod:products) {
+			if(prod.getProductName().equalsIgnoreCase(productDTO.getProductName())) {
+				isProductNotPresent=false;
+				break;
+			}
 		}
 		
+		if(isProductNotPresent) {
+				Product prod=modelMapper.map(productDTO, Product.class);
+				double specialPrice=(prod.getPrice()-(prod.getDiscount()*0.01)*prod.getPrice());
+				prod.setImage("default.png");
+				prod.setCategory(cat);
+				prod.setSpecialPrice(specialPrice);
+				prod.setUser(authUtil.loggedInUser()); //this is common util class to get user details
+				Product prodResp=prodRepo.save(prod);
+				ProductDTO dtoResp=modelMapper.map(prodResp, ProductDTO.class);
+				return dtoResp;
+		}else {
+			throw new APIException("Product already exists!");
+		}
 	}
 
 	@Override
 	public ProductResponse getAllProducts() {
 		List<Product> prods=prodRepo.findAll();
 		List<ProductDTO> prodDTO=prods.stream().map(prod->modelMapper.map(prod, ProductDTO.class)).toList();
+		if(prods.isEmpty()) {
+			throw new APIException("No product Exists!!");
+		}
 		ProductResponse prodResp=new ProductResponse();
 		prodResp.setContent(prodDTO);
 		return prodResp;
@@ -147,5 +170,21 @@ public class ProductService implements IProductService{
 		}
 	}
 
-	
+	@Override
+	public ProductDTO updateProductImage(Long productId, MultipartFile image) throws IOException {
+		//Get the product from DB
+		Product prod= prodRepo.findById(productId).orElseThrow(()-> new ResourceNotFoundException("Product","productId", productId));
+		//upload the image to server
+		//Get the file name of uploaded image
+		String fileName=fileService.uploadImage(path,image);
+		
+		//updating the new file name to the product
+		prod.setImage(fileName);
+		
+		//save updaed product
+		Product updatedProduct=prodRepo.save(prod); //here we are using put mapping we are not creating new product obj and setting only image to existing one so no override of existing product.
+		//return DTO after mapping product to DTO.
+		return modelMapper.map(updatedProduct, ProductDTO.class);
+	}
+
 }

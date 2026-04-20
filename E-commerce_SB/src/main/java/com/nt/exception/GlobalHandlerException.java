@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.nt.payload.APIResponse;
 
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 @RestControllerAdvice
 public class GlobalHandlerException {
 	
@@ -43,6 +47,23 @@ public class GlobalHandlerException {
 		resp.setMessage(msg);
 		resp.setStatus(false);
 		return new ResponseEntity<APIResponse>(resp,HttpStatus.BAD_REQUEST);
+	}
+	
+	//these are for if @valid annotation if we give less length like that it gives ConstraintViolationException like in entity we have
+	//@NotBlank @Size(min=3,message="Product name must contain atleast 3 characters") private String productName;
+	@ExceptionHandler(ConstraintViolationException.class)
+	public ResponseEntity<Map<String, String>> handleConstraintViolation(
+	        ConstraintViolationException ex) {
+
+	    Map<String, String> errors = new HashMap<>();
+
+	    ex.getConstraintViolations().forEach(violation -> {
+	        String field = violation.getPropertyPath().toString();
+	        String message = violation.getMessage();
+	        errors.put(field, message);
+	    });
+
+	    return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
 	}
 
 }
