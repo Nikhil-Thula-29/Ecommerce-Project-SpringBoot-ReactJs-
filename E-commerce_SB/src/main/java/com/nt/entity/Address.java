@@ -1,22 +1,21 @@
 package com.nt.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class Address {
 
 	@Id
@@ -48,9 +47,9 @@ public class Address {
 	@Size(min=6,message="Pincode must be atleast 6 characters")
 	private String pincode;
 	
-	@ToString.Exclude
-	@ManyToMany(mappedBy="addresses")//this mappedBy="addresses" will be there in user with same field name rem mappedby used means same field name.
-	private List<User> users=new ArrayList<>();
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 
 
 	public Address(Long addressId,

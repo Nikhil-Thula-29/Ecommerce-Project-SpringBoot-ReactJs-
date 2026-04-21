@@ -214,7 +214,7 @@ public class CartServiceImpl implements ICartService {
 		CartDTO cartDTO = modelMapper.map(cart, CartDTO.class);
 		List<ProductDTO> productDTOs = cart.getCartItems().stream().map(item -> {
 			ProductDTO prod = modelMapper.map(item.getProduct(), ProductDTO.class);
-			prod.setQuantity(item.getQuantity());
+			prod.setQuantity(item.getQuantity()); //Or else product quantity will set but we need to set cartitem quantity i.e user selected quantity
 			return prod;
 		}).collect(Collectors.toList());
 		cartDTO.setProducts(productDTOs);

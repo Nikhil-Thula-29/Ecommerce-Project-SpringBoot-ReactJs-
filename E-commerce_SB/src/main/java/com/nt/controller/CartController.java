@@ -34,7 +34,7 @@ public class CartController {
 	@Autowired
 	private AuthUtil authUtil;
 
-	@PostMapping("/carts/products/{productId}/quantity/{quantity}")
+	@PostMapping("/carts/products/{productId}/quantity/{quantity}") //check both productId and qunatity should be same name in @pathvariable("productId") and long productId
 	public ResponseEntity<CartDTO> addProductToCart(@PathVariable("productId") Long productId,@PathVariable("quantity") Integer quantity){
 		CartDTO cartDTO=cartService.addProductToCart(productId,quantity);
 		return new ResponseEntity<CartDTO>(cartDTO,HttpStatus.CREATED);
