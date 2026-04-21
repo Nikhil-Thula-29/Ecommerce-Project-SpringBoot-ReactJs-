@@ -47,7 +47,7 @@ public class CategoryService implements ICategoryService {
 		catresp.setPageNumber(page.getNumber());
 		catresp.setPageSize(page.getSize());
 		catresp.setTotalElements(page.getTotalElements());
-		catresp.setTotalpages(page.getTotalPages());	
+		catresp.setTotalPages(page.getTotalPages());	
 		catresp.setLast(page.isLast());	
 		return catresp;
 	}

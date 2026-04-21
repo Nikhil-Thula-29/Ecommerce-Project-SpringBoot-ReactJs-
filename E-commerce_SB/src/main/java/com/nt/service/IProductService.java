@@ -11,16 +11,17 @@ public interface IProductService{
 
 	public ProductDTO addProduct(ProductDTO productDTO, Long categoryId);
 
-	public ProductResponse getAllProducts();
+	public ProductResponse getAllProducts(Integer pageNumber,Integer pageSize,String sortBy,String sortOrder);
 
-	public ProductResponse searchByCategory(Long categoryId);
+	public ProductResponse searchByCategory(Long categoryId,Integer pageNumber,Integer pageSize,String sortBy,String sortOrder);
 
-	public ProductResponse getProductsByKeyword(String keyword);
+	public ProductResponse getProductsByKeyword(String keyword,Integer pageNumber,Integer pageSize,String sortBy,String sortOrder);
 
 	public ProductDTO updateProduct(ProductDTO productDTO, Long productId);
 
 	public ProductDTO deleteProduct(Long productId);
 
 	public ProductDTO updateProductImage(Long productId, MultipartFile image) throws IOException;
+
 
 }
