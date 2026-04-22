@@ -1,6 +1,7 @@
 package com.nt.security.config;
 
 
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
@@ -120,42 +121,36 @@ public class WebSecurityConfig {
 	                        return roleRepository.save(newAdminRole);
 	                    });
 
-	            Set<Role> userRoles = Set.of(userRole);
-	            Set<Role> sellerRoles = Set.of(sellerRole);
-	            Set<Role> adminRoles = Set.of(userRole, sellerRole, adminRole);
+	            Set<Role> userRoles = new HashSet<>();
+	            userRoles.add(userRole);
+
+	            Set<Role> sellerRoles = new HashSet<>();
+	            sellerRoles.add(sellerRole);
+
+	            Set<Role> adminRoles = new HashSet<>();
+	            adminRoles.add(userRole);
+	            adminRoles.add(sellerRole);
+	            adminRoles.add(adminRole);
 
 
 	            // Create users if not already present
 	            if (!userRepository.existsByUserName("user1")) {
 	                User user1 = new User("user1", "user1@example.com", passwordEncoder.encode("password1"));
+	                user1.setRoles(new HashSet<>(userRoles));
 	                userRepository.save(user1);
 	            }
 
 	            if (!userRepository.existsByUserName("seller1")) {
 	                User seller1 = new User("seller1", "seller1@example.com", passwordEncoder.encode("password2"));
+	                seller1.setRoles(new HashSet<>(sellerRoles));
 	                userRepository.save(seller1);
 	            }
 
 	            if (!userRepository.existsByUserName("admin")) {
 	                User admin = new User("admin", "admin@example.com", passwordEncoder.encode("adminPass"));
+	                admin.setRoles(new HashSet<>(adminRoles));
 	                userRepository.save(admin);
 	            }
-
-	            // Update roles for existing users
-	            userRepository.findByUserName("user1").ifPresent(user -> {
-	                user.setRoles(userRoles);
-	                userRepository.save(user);
-	            });
-
-	            userRepository.findByUserName("seller1").ifPresent(seller -> {
-	                seller.setRoles(sellerRoles);
-	                userRepository.save(seller);
-	            });
-
-	            userRepository.findByUserName("admin").ifPresent(admin -> {
-	                admin.setRoles(adminRoles);
-	                userRepository.save(admin);
-	            });
 	        };
 	    }
 	 

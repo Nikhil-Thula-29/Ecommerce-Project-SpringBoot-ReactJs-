@@ -139,9 +139,9 @@ public class CartServiceImpl implements ICartService {
 		}
 		List<CartDTO> cartDTOs = carts.stream().map(cart -> {
 			CartDTO cartDTO = modelMapper.map(cart, CartDTO.class);
-			List<ProductDTO> products = cart.getCartItems().stream().map(prod -> {
-				ProductDTO produ = modelMapper.map(prod.getProduct(), ProductDTO.class);
-				produ.setQuantity(prod.getQuantity());
+			List<ProductDTO> products = cart.getCartItems().stream().map(cartItem -> {
+				ProductDTO produ = modelMapper.map(cartItem.getProduct(), ProductDTO.class);
+				produ.setQuantity(cartItem.getQuantity()); //we are setting the prod i.e cart item product quantity(selected quantity) not main product stock.
 				return produ; //rem imp to set produ in products.
 			}).collect(Collectors.toList());
 			cartDTO.setProducts(products);
@@ -231,7 +231,9 @@ public class CartServiceImpl implements ICartService {
 			throw new ResourceNotFoundException("Product", "productId", productId);
 		}
 		cart.setTotalPrice(cart.getTotalPrice() - (cartItem.getProductPrice() * cartItem.getQuantity()));
-		cartItemRepository.deleteCartItemByProductIdAndCartId(cartId, productId);
+		//cartItemRepository.deleteCartItemByProductIdAndCartId(cartId, productId);
+		cart.getCartItems().remove(cartItem); //remove from cart first.
+		cartItemRepository.delete(cartItem);
 		return "Product " + cartItem.getProduct().getProductName() + " removed from the cart !!!";
 	}
 

@@ -57,6 +57,6 @@ public class Product {
 	//Bidirectional
 	//It is parent for cartItem because if we delete product then that has to delete from cartitem also but if we delete cartitem then product should not delete
 	//wrote mappedby because already in cartitem we mapped product so need in this table.
-	@OneToMany(mappedBy = "product",cascade = {CascadeType.PERSIST,CascadeType.MERGE},fetch = FetchType.EAGER) //wrote cascade because this parent for cartItem.
+	@OneToMany(mappedBy = "product",cascade = {CascadeType.PERSIST,CascadeType.MERGE},fetch = FetchType.LAZY) //wrote cascade because this parent for cartItem.
 	private List<CartItem> cartItems=new ArrayList<CartItem>();
 }

@@ -67,7 +67,9 @@ public class User {
 	
 	@Getter
 	@Setter
-	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},fetch = FetchType.EAGER)
+	@Exclude
+	@ToString.Exclude
+	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},fetch = FetchType.LAZY)
 	@JoinTable(name="user_role",
 			joinColumns = @JoinColumn(name="user_id"),
 			inverseJoinColumns = @JoinColumn(name="role_id"))
@@ -77,12 +79,15 @@ public class User {
 	//This is for seller point of view as a user
 	//user can have multiple products to sell so one to many i.e one user can sell multiple products
 	//mappedby="user" so not mapped here bcz already user mapped in that product table only this pk is created but this can help in fetching all products with userid
+	@Exclude
 	@ToString.Exclude //we can write because it is mappedby user we can exclude in tostring.
 	@OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST,CascadeType.MERGE},orphanRemoval = true) //orphanRemoval means "If a child is removed from parent collection → delete it from DB" and cascade.delete is different->"If parent is deleted → delete all children"
-	private Set<Product> products;
+	private Set<Product> products = new HashSet<>();;
 	
 	@Getter
 	@Setter
+	@Exclude //added not to include equals hashcode etc by lombok
+	@ToString.Exclude
 	@OneToMany(mappedBy = "user" ,cascade = {CascadeType.PERSIST,CascadeType.MERGE},orphanRemoval = true)
 //	@JoinTable(name="user_address",
 //			joinColumns = @JoinColumn(name="user_id"),
@@ -90,6 +95,7 @@ public class User {
 	private List<Address> addresses=new ArrayList<>();
 	
 	//Bidirectional
+	@Exclude
 	@ToString.Exclude
 	@OneToOne(mappedBy ="user",cascade = {CascadeType.PERSIST,CascadeType.REMOVE,CascadeType.MERGE},orphanRemoval = true)
 	private Cart cart;
