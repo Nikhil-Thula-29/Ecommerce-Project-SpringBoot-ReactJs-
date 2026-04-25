@@ -50,7 +50,8 @@ public class WebSecurityConfig {
 	
 	@Bean
 	public DaoAuthenticationProvider authenticationProvider(UserDetailsServiceImpl userDetailsService,PasswordEncoder passwordEncoder) {
-		DaoAuthenticationProvider authenticationProvider=new DaoAuthenticationProvider(userDetailsService);
+		DaoAuthenticationProvider authenticationProvider=new DaoAuthenticationProvider();
+		authenticationProvider.setUserDetailsService(userDetailsService);
 		authenticationProvider.setPasswordEncoder(passwordEncoder);
 		return authenticationProvider;
 	}
@@ -71,6 +72,7 @@ public class WebSecurityConfig {
 				.requestMatchers("/v3/api-docs/**").permitAll()
 				.requestMatchers("/swagger-ui/**").permitAll()
 				.requestMatchers("/h2-console/**").permitAll()
+				.requestMatchers("/error").permitAll()
 				//.requestMatchers("/api/public/**").permitAll()
 				//.requestMatchers("/api/admin/**").permitAll()
 				.requestMatchers("/api/test/**").permitAll()
@@ -157,7 +159,7 @@ public class WebSecurityConfig {
 	    }
 	 
 	 @Bean
-		public AuthenticationManager authenticationManager(AuthenticationConfiguration builder) {
+		public AuthenticationManager authenticationManager(AuthenticationConfiguration builder) throws Exception {
 			return builder.getAuthenticationManager();
 		}
 	

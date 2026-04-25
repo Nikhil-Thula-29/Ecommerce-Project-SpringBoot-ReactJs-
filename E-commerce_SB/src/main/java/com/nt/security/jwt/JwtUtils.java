@@ -36,14 +36,7 @@ public class JwtUtils {
 	@Value("${spring.ecom.app.jwtCookieName}")
 	private String jwtCookie;
 	
-	//Getting JWT From Header
-	/*public String getJWTFromHeader(HttpServletRequest request) {
-		String bearerToken=request.getHeader("Authorization");
-		if(bearerToken!=null && bearerToken.startsWith("Bearer ")) {
-			return bearerToken=bearerToken.substring(7);
-		}
-		return null;
-	}*/
+	
 	
 	//Getting JWT From cookie.(We are using cookies instead of headers)
 	public String getJWTFromCookies(HttpServletRequest request) {
@@ -55,6 +48,15 @@ public class JwtUtils {
 		}
 		
 	}
+	
+	//Getting JWT From Header for swagger it wont support cookies so we are accepting jwtfromheader also
+		public String getJWTFromHeader(HttpServletRequest request) {
+			String bearerToken=request.getHeader("Authorization");
+			if(bearerToken!=null && bearerToken.startsWith("Bearer ")) {
+				return bearerToken=bearerToken.substring(7);
+			}
+			return null;
+		}
 	
 	
 	//Generate JWT by ResponseCookie it uses generateTokenFromUserName

@@ -12,10 +12,11 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import tools.jackson.databind.ObjectMapper;
 
 
 //This file handles if Unauthorized access loged in then we will redirect to this and print the output in json

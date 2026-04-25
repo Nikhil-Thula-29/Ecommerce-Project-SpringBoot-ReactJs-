@@ -60,9 +60,17 @@ public class AuthTokenFilter extends OncePerRequestFilter{
 		filterChain.doFilter(request, response);//will follow next filters.
 	}
 
+	//same used header for swagger which wont support cookies
 	private String parseJwt(HttpServletRequest request) {
-		String jwt=jwtUtils.getJWTFromCookies(request);
-		return jwt;
+		String jwtFromCookie=jwtUtils.getJWTFromCookies(request);
+		if(jwtFromCookie!=null) {
+			return jwtFromCookie;
+		}
+		String jwtFromHeader=jwtUtils.getJWTFromHeader(request);
+		if(jwtFromHeader!=null) {
+			return jwtFromHeader;
+		}
+		return null;
 	}
 
 }

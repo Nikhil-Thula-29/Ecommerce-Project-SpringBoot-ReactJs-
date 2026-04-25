@@ -251,7 +251,7 @@ public class CartServiceImpl implements ICartService {
 		}
 		
 		//1000-100*2=800 (1000 is already price in cart means cost of multiple products from that we removing updated product price completely)
-		double cartPrice=cart.getTotalPrice()-(cartItem.getProductPrice()*cartItem.getQuantity());
+		Double cartPrice=cart.getTotalPrice()-(cartItem.getProductPrice()*cartItem.getQuantity());
 		//increased 100 to 200 for 1 product
 		cartItem.setProductPrice(product.getSpecialPrice());//setting the new price
 		//800+200*2=1200

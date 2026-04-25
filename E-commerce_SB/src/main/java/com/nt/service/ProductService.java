@@ -71,7 +71,9 @@ public class ProductService implements IProductService {
 
 		if (isProductNotPresent) {
 			Product prod = modelMapper.map(productDTO, Product.class);
-			double specialPrice = (prod.getPrice() - (prod.getDiscount() * 0.01) * prod.getPrice());
+			Double priceVal = prod.getPrice() != null ? prod.getPrice() : 0.0;
+			Double discountVal = prod.getDiscount() != null ? prod.getDiscount() : 0.0;
+			Double specialPrice = priceVal - (discountVal * 0.01) * priceVal;
 			prod.setImage("default.png");
 			prod.setCategory(cat);
 			prod.setSpecialPrice(specialPrice);
@@ -159,7 +161,9 @@ public class ProductService implements IProductService {
 			product.setPrice(pr.getPrice());
 			product.setProductName(pr.getProductName());
 			product.setQuantity(pr.getQuantity());
-			product.setSpecialPrice((pr.getPrice() - (pr.getDiscount() * 0.01) * pr.getPrice()));
+			Double priceVal = pr.getPrice() != null ? pr.getPrice() : 0.0;
+			Double discountVal = pr.getDiscount() != null ? pr.getDiscount() : 0.0;
+			product.setSpecialPrice(priceVal - (discountVal * 0.01) * priceVal);
 			Product pro = prodRepo.save(product);
 
 			//we need to do this after saving of product details
