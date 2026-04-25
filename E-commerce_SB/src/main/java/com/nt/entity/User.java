@@ -49,7 +49,7 @@ public class User {
 	@NotBlank
 	@Size(max=20)
 	@Column(name="username")
-	private String userName;
+	private String username;
 	
 	@NotBlank
 	@Size(max=50)
@@ -69,7 +69,7 @@ public class User {
 	@Setter
 	@Exclude
 	@ToString.Exclude
-	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},fetch = FetchType.LAZY)
+	@ManyToMany(cascade = {CascadeType.MERGE},fetch = FetchType.LAZY)
 	@JoinTable(name="user_role",
 			joinColumns = @JoinColumn(name="user_id"),
 			inverseJoinColumns = @JoinColumn(name="role_id"))
@@ -100,10 +100,10 @@ public class User {
 	@OneToOne(mappedBy ="user",cascade = {CascadeType.PERSIST,CascadeType.REMOVE,CascadeType.MERGE},orphanRemoval = true)
 	private Cart cart;
 
-	public User(@NotBlank @Size(max = 20) String userName, @NotBlank @Size(max = 50) @Email String email,
+	public User(@NotBlank @Size(max = 20) String username, @NotBlank @Size(max = 50) @Email String email,
 			@NotBlank @Size(max = 120) String password) {
 		super();
-		this.userName = userName;
+		this.username = username;
 		this.email = email;
 		this.password = password;
 	}

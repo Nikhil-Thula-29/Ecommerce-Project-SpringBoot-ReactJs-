@@ -9,9 +9,9 @@ import com.nt.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long>{
 
-	public Optional<User> findByUserName(String username);
+	public Optional<User> findByUsername(String username);
 
-	public boolean existsByUserName(String username);
+	public boolean existsByUsername(String username);
 
 	public boolean existsByEmail(String email);
 

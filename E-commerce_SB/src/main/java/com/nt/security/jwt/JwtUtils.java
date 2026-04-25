@@ -64,7 +64,7 @@ public class JwtUtils {
 				.path("/")
 				.maxAge(24*60*60*10)
 				.httpOnly(true)  //this can stop xss attacks (cross-site scripting executing js code)
-		        .secure(true) //Only works on HTTPS (recommended for production)
+		        .secure(false) //Only works on HTTPS (recommended for production) we use need to use true if we have ssl certicate we need to make it true i.e http and if we are using https with ssl certifcate we need to make to true
 		        .sameSite("Strict") //this can stop csrf attacks( redirecting to other pages) cross site request forgery.
 				.build();
 		return cookie;	

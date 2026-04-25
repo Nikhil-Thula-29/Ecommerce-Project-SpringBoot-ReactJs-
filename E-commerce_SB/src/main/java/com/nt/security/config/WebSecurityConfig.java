@@ -66,6 +66,8 @@ public class WebSecurityConfig {
 		.exceptionHandling(exception->exception.authenticationEntryPoint(unauthorizedHandler))	//mapping authorized error to AuthEntryPointJWT
 		.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 		.authorizeHttpRequests((auth)->auth.requestMatchers("/api/auth/**").permitAll()
+				.requestMatchers("/").permitAll()
+				.requestMatchers("/health").permitAll()
 				.requestMatchers("/v3/api-docs/**").permitAll()
 				.requestMatchers("/swagger-ui/**").permitAll()
 				.requestMatchers("/h2-console/**").permitAll()
@@ -134,19 +136,19 @@ public class WebSecurityConfig {
 
 
 	            // Create users if not already present
-	            if (!userRepository.existsByUserName("user1")) {
+	            if (!userRepository.existsByUsername("user1")) {
 	                User user1 = new User("user1", "user1@example.com", passwordEncoder.encode("password1"));
 	                user1.setRoles(new HashSet<>(userRoles));
 	                userRepository.save(user1);
 	            }
 
-	            if (!userRepository.existsByUserName("seller1")) {
+	            if (!userRepository.existsByUsername("seller1")) {
 	                User seller1 = new User("seller1", "seller1@example.com", passwordEncoder.encode("password2"));
 	                seller1.setRoles(new HashSet<>(sellerRoles));
 	                userRepository.save(seller1);
 	            }
 
-	            if (!userRepository.existsByUserName("admin")) {
+	            if (!userRepository.existsByUsername("admin")) {
 	                User admin = new User("admin", "admin@example.com", passwordEncoder.encode("adminPass"));
 	                admin.setRoles(new HashSet<>(adminRoles));
 	                userRepository.save(admin);

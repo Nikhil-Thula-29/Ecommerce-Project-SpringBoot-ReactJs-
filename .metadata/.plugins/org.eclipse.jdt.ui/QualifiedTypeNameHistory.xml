@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="lombok.Value"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
     <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
     <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
     <fullyQualifiedTypeName name="com.nt.service.ProductService"/>
@@ -30,7 +28,6 @@
     <fullyQualifiedTypeName name="jakarta.validation.constraints.Size"/>
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
-    <fullyQualifiedTypeName name="com.nt.payload.PaymentDTO"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="com.nt.entity.OrderItem"/>
@@ -56,8 +53,11 @@
     <fullyQualifiedTypeName name="com.nt.repository.IProductRepository"/>
     <fullyQualifiedTypeName name="com.nt.service.ICartService"/>
     <fullyQualifiedTypeName name="com.nt.entity.Product"/>
-    <fullyQualifiedTypeName name="com.nt.entity.Order"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.modelmapper.ModelMapper"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="com.nt.payload.OrderItemDTO"/>
+    <fullyQualifiedTypeName name="com.nt.payload.ProductDTO"/>
+    <fullyQualifiedTypeName name="com.nt.payload.PaymentDTO"/>
+    <fullyQualifiedTypeName name="com.nt.entity.Order"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
