@@ -10,6 +10,7 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 
 //This file is for adding token in swagger to check
 //url to check:/swagger-ui/index.html
+//There are different annotations in swagger which we write on method like @Tag for creating swaggers,@operation to get description check in gpt
 @Configuration
 public class SwaggerConfig {
 
